@@ -1,0 +1,8 @@
+CVS_URI=":pserver:anonymous@cvs.comedi.org:/cvs/comedi"
+CVS_MODULE=audioresample
+inherit cvs
+
+DESCRIPTION="Audio resampling library"
+HOMEPAGE="http://www.schleef.org/cgi-bin/viewcvs.cgi/audioresample/"
+
+CYGCONF_ARGS="--disable-static"

@@ -1,0 +1,37 @@
+diff -urN -x CYGWIN-PATCHES -x 'aclocal.m4*' -x ltmain.sh -x 'config.*' -x depcomp -x install-sh -x missing -x mkinstalldirs -x autom4te.cache -x '*compile' -x 'intltool*.in' -x 'xml-i18n-*.in' -x '*.pyc' -x '*.mo' -x '*.gmo' -x ABOUT-NLS -x Makevars.template -x COPYING -x INSTALL -x '*.orig' -x '*.rej' -x '*~' -x '*.temp' -x texinfo.tex -x ylwrap -x 'Makefile.in*' -x configure -x gnome-doc-utils.make -x intltool.m4 -x omf.make -x xmldocs.make origsrc/audioresample/Makefile.am src/audioresample/Makefile.am
+--- origsrc/audioresample/Makefile.am	2004-03-12 19:37:27.000000000 -0600
++++ src/audioresample/Makefile.am	2006-08-06 18:40:42.665625000 -0500
+@@ -4,3 +4,4 @@
+ pkgconfigdir = $(libdir)/pkgconfig
+ pkgconfig_DATA = audioresample-@AUDIORESAMPLE_MAJORMINOR@.pc
+ 
++ACLOCAL_AMFLAGS = -I m4
+diff -urN -x CYGWIN-PATCHES -x 'aclocal.m4*' -x ltmain.sh -x 'config.*' -x depcomp -x install-sh -x missing -x mkinstalldirs -x autom4te.cache -x '*compile' -x 'intltool*.in' -x 'xml-i18n-*.in' -x '*.pyc' -x '*.mo' -x '*.gmo' -x ABOUT-NLS -x Makevars.template -x COPYING -x INSTALL -x '*.orig' -x '*.rej' -x '*~' -x '*.temp' -x texinfo.tex -x ylwrap -x 'Makefile.in*' -x configure -x gnome-doc-utils.make -x intltool.m4 -x omf.make -x xmldocs.make origsrc/audioresample/audioresample/Makefile.am src/audioresample/audioresample/Makefile.am
+--- origsrc/audioresample/audioresample/Makefile.am	2005-05-28 21:30:10.000000000 -0500
++++ src/audioresample/audioresample/Makefile.am	2006-08-06 18:40:42.665625000 -0500
+@@ -15,11 +15,11 @@
+ 	buffer.h
+ libaudioresample_@AUDIORESAMPLE_MAJORMINOR@_la_LIBADD = \
+ 	$(LIBOIL_LIBS) \
+-	$(GLIB_LIBS)
++	$(GLIB_LIBS) -lm
+ libaudioresample_@AUDIORESAMPLE_MAJORMINOR@_la_CFLAGS = \
+ 	$(AUDIORESAMPLE_CFLAGS) $(GLIB_CFLAGS)
+ libaudioresample_@AUDIORESAMPLE_MAJORMINOR@_la_LDFLAGS = \
+-	-lm
++	-no-undefined
+ 
+ libaudioresampleincludedir = $(includedir)/audioresample-@AUDIORESAMPLE_MAJORMINOR@/audioresample
+ libaudioresampleinclude_HEADERS = \
+diff -urN -x CYGWIN-PATCHES -x 'aclocal.m4*' -x ltmain.sh -x 'config.*' -x depcomp -x install-sh -x missing -x mkinstalldirs -x autom4te.cache -x '*compile' -x 'intltool*.in' -x 'xml-i18n-*.in' -x '*.pyc' -x '*.mo' -x '*.gmo' -x ABOUT-NLS -x Makevars.template -x COPYING -x INSTALL -x '*.orig' -x '*.rej' -x '*~' -x '*.temp' -x texinfo.tex -x ylwrap -x 'Makefile.in*' -x configure -x gnome-doc-utils.make -x intltool.m4 -x omf.make -x xmldocs.make origsrc/audioresample/audioresample-0.1.pc.in src/audioresample/audioresample-0.1.pc.in
+--- origsrc/audioresample/audioresample-0.1.pc.in	2004-12-15 17:30:04.000000000 -0600
++++ src/audioresample/audioresample-0.1.pc.in	2006-08-06 18:40:42.681250000 -0500
+@@ -8,7 +8,7 @@
+ Name: audioresample-@AUDIORESAMPLE_MAJORMINOR@
+ Description: Audio resampling library
+ Version: @VERSION@
+-Requires: liboil-0.2
++Requires: liboil-0.3
+ Libs: -L${libdir} -laudioresample-@AUDIORESAMPLE_MAJORMINOR@
+ Cflags: -I${includedir}/audioresample-@AUDIORESAMPLE_MAJORMINOR@
+ 
