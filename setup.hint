@@ -1,4 +1,4 @@
 category: Audio Libs
-requires: cygwin glib2 liboil03
+requires: glib2 liboil03
 sdesc: "Audio resampling library (runtime)"
 ldesc: "Audio resampling library"
